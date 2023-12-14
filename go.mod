@@ -1,3 +1,3 @@
-module belenot.fun/auth
+module auth
 
 go 1.21.4
