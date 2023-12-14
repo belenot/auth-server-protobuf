@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package auth;
+
+option go_package="belenot.fun;auth";
+
+service Auth {
+	rpc Signup (SignupRequest) returns (SignupResponse);
+	rpc Signin (SigninRequest) returns (SigninResponse);
+	rpc Signout (SignoutRequest) returns (SignoutResponse);
+}
+
+
+message SigninRequest {
+	string login = 1;
+	string password = 2;
+}
+
+message SigninResponse {
+	string token = 1;
+}
+
+message SignupRequest {
+	string login = 1;
+	string password = 2;
+}
+
+message SignupResponse {
+	string login = 1;
+}
+
+message SignoutRequest {
+	string token = 1;
+}
+
+message SignoutResponse {
+	string login = 1;
+}
+
