@@ -18,6 +18,7 @@ message SigninRequest {
 
 message SigninResponse {
 	string token = 1;
+	string refreshToken = 2;
 }
 
 message SignupRequest {
