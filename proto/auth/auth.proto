@@ -10,6 +10,7 @@ service Auth {
 	rpc Signout (SignoutRequest) returns (SignoutResponse);
 	rpc RefreshToken (RefreshTokenRequest) returns (RefreshTokenResponse);
 	rpc UserInfo (UserInfoRequest) returns (UserInfoResponse);
+	rpc UserInfosBatchById (UserInfosBatchByIdRequest) returns (UserInfosBatchByIdResponse);
 }
 
 
@@ -53,6 +54,20 @@ message UserInfoRequest {
 }
 
 message UserInfoResponse {
+	string login = 1;
+	string uid = 2;
+	map<string, string> attrs = 3;
+}
+
+message UserInfosBatchByIdRequest {
+	repeated string userIds = 1;
+}
+
+message UserInfosBatchByIdResponse {
+	map<string, UserInfo> userInfos = 1;
+}
+
+message UserInfo {
 	string login = 1;
 	string uid = 2;
 	map<string, string> attrs = 3;
